@@ -5,7 +5,8 @@ This is a simple web server application I am using to learn and experiment with 
 ## TODO
 - [x] HTTP Server
 - [x] HTTP Client
-- [ ] 404 Page
+- [x] 404 Page
+- [ ] Hot reloading
 - [ ] Server request logging
 - [ ] Client request logging
 - [ ] CORS

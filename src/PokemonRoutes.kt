@@ -18,7 +18,6 @@ val client = HttpClient {
     }
 }
 
-
 fun Route.getPokemonRoute() {
     get("/pokemon") {
         val randomNumber: Int = Random.nextInt(1, 151)
