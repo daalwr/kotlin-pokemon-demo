@@ -8,6 +8,7 @@ import io.ktor.client.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import kotlinx.serialization.json.Json
+import kotlin.random.Random
 
 val client = HttpClient {
     install(JsonFeature) {
@@ -17,11 +18,17 @@ val client = HttpClient {
     }
 }
 
+
 fun Route.getPokemonRoute() {
     get("/pokemon") {
-        val pokemon: Pokemon = client.get("https://pokeapi.co/api/v2/pokemon/1")
+        val randomNumber: Int = Random.nextInt(1, 151)
+        val pokemon = getPokemon(randomNumber)
         call.respond(pokemon)
     }
+}
+
+suspend fun getPokemon(number: Int): Pokemon {
+    return client.get("https://pokeapi.co/api/v2/pokemon/$number")
 }
 
 fun Application.registerPokemonRoutes() {

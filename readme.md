@@ -3,6 +3,9 @@
 This is a simple web server application I am using to learn and experiment with Kotlin.
 
 ## TODO
+- [x] HTTP Server
+- [x] HTTP Client
+- [ ] 404 Page
 - [ ] Server request logging
 - [ ] Client request logging
 - [ ] CORS
