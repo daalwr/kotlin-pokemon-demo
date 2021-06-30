@@ -1,6 +1,7 @@
 package dev.danielwright
 
 import io.ktor.application.*
+import io.ktor.auth.*
 import io.ktor.client.*
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.*
@@ -35,6 +36,11 @@ fun Route.getPokemonRoutes() {
     }
     get("/pokefail") {
         throw Exception("Pokefail exception")
+    }
+    authenticate("auth-basic") {
+        get("/protectedpokemon") {
+            call.respond("PROTECTED!")
+        }
     }
 }
 

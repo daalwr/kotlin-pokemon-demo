@@ -13,8 +13,8 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] Basic client request logging
 - [x] CORS
 - [x] Error handling
+- [x] Basic Authentication
 - [ ] Advanced client request logging
-- [ ] Authentication
 - [ ] Header parsing
 - [ ] Dependency Injection
 - [ ] Validation
