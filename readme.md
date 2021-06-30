@@ -6,14 +6,16 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] HTTP Server
 - [x] HTTP Client
 - [x] 404 Page
-- [ ] Hot reloading
-- [ ] Server request logging
-- [ ] Client request logging
-- [ ] CORS
-- [ ] Error handling
+- [x] Hot reloading
+- [x] Logging
+- [x] Context propagation
+- [x] Server request logging
+- [x] Basic client request logging
+- [x] CORS
+- [x] Error handling
+- [ ] Advanced client request logging
 - [ ] Authentication
 - [ ] Header parsing
-- [ ] Context propagation
 - [ ] Dependency Injection
 - [ ] Validation
 - [ ] Configuration loading
