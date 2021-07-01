@@ -14,9 +14,9 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] CORS
 - [x] Error handling
 - [x] Basic Authentication
+- [x] Dependency Injection
 - [ ] Advanced client request logging
 - [ ] Header parsing
-- [ ] Dependency Injection
 - [ ] Validation
 - [ ] Configuration loading
 - [ ] Memoization / caching

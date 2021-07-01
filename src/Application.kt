@@ -6,7 +6,10 @@ import io.ktor.content.*
 import io.ktor.features.*
 import io.ktor.http.*
 import io.ktor.response.*
+import io.ktor.routing.*
 import io.ktor.serialization.*
+import org.koin.ktor.ext.Koin
+import org.koin.ktor.ext.inject
 import java.util.*
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -38,11 +41,28 @@ fun Application.module() {
             throw cause
         }
         status(HttpStatusCode.NotFound) {
-            call.respond(TextContent("${it.value} ${it.description}", ContentType.Text.Plain.withCharset(Charsets.UTF_8), it))
+            call.respond(
+                TextContent(
+                    "${it.value} ${it.description}",
+                    ContentType.Text.Plain.withCharset(Charsets.UTF_8),
+                    it
+                )
+            )
         }
         status(HttpStatusCode.Unauthorized) {
-            call.respond(TextContent("${it.value} ${it.description}", ContentType.Text.Plain.withCharset(Charsets.UTF_8), it))
+            call.respond(
+                TextContent(
+                    "${it.value} ${it.description}",
+                    ContentType.Text.Plain.withCharset(Charsets.UTF_8),
+                    it
+                )
+            )
         }
     }
+
+    install(Koin) {
+        modules(helloAppModule)
+    }
+
     registerPokemonRoutes()
 }
