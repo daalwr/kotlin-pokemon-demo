@@ -14,13 +14,17 @@ plugins {
     id 'application'
 }
 
+test {
+    useJUnitPlatform()
+}
+
 group 'dev.danielwright'
 version '0.0.1-SNAPSHOT'
 mainClassName = "io.ktor.server.netty.EngineMain"
 
 sourceSets {
-    main.kotlin.srcDirs = main.java.srcDirs = ['src']
-    test.kotlin.srcDirs = test.java.srcDirs = ['test']
+    main.kotlin.srcDirs = main.java.srcDirs = ['src/main']
+    test.kotlin.srcDirs = test.java.srcDirs = ['src/test']
     main.resources.srcDirs = ['resources']
     test.resources.srcDirs = ['testresources']
 }
@@ -52,6 +56,18 @@ dependencies {
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation "io.insert-koin:koin-ktor:$koin_version"
     testImplementation "io.insert-koin:koin-test:$koin_version"
+    testImplementation "io.ktor:ktor-server-test-host:$ktor_version"
+    testImplementation "io.insert-koin:koin-test-junit5:$koin_version"
+
+    testImplementation "io.kotest:kotest-runner-junit5:${kotest_version}"
+    testImplementation "io.kotest:kotest-assertions-core:${kotest_version}"
+    testImplementation "io.kotest:kotest-property:${kotest_version}"
+    testImplementation "io.kotest.extensions:kotest-extensions-koin:1.0.0"
+    testImplementation "io.kotest.extensions:kotest-assertions-ktor:1.0.3"
+    testImplementation "io.kotest:kotest-assertions-core-jvm:$kotest_version"
+    testImplementation "io.kotest:kotest-runner-junit5-jvm:$kotest_version"
+
+    testImplementation "io.mockk:mockk:1.12.0"
 
     implementation "ch.qos.logback:logback-classic:$logback_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"

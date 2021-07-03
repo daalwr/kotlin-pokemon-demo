@@ -1,4 +1,4 @@
-package dev.danielwright
+package dev.danielwright.main
 
 import io.ktor.client.request.*
 

@@ -15,14 +15,15 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] Error handling
 - [x] Basic Authentication
 - [x] Dependency Injection
+- [x] Header parsing
+- [x] Serialization and deserialization
+- [x] Unit testing
+- [x] Component testing
 - [ ] Advanced client request logging
-- [ ] Header parsing
 - [ ] Validation
 - [ ] Configuration loading
 - [ ] Memoization / caching
 - [ ] Tracing / OpenTelemetry
-- [ ] Unit testing
-- [ ] Component testing
 - [ ] Mocking
 - [ ] Code coverage
 - [ ] Code formatting

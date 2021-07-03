@@ -1,4 +1,4 @@
-package dev.danielwright
+package dev.danielwright.main
 
 import io.ktor.application.*
 import io.ktor.auth.*
@@ -6,10 +6,8 @@ import io.ktor.content.*
 import io.ktor.features.*
 import io.ktor.http.*
 import io.ktor.response.*
-import io.ktor.routing.*
 import io.ktor.serialization.*
 import org.koin.ktor.ext.Koin
-import org.koin.ktor.ext.inject
 import java.util.*
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -61,7 +59,7 @@ fun Application.module() {
     }
 
     install(Koin) {
-        modules(helloAppModule)
+        modules(pokemonAppModule)
     }
 
     registerPokemonRoutes()
