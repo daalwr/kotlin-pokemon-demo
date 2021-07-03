@@ -13,6 +13,9 @@ import java.util.*
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
+    install(Koin) {
+        modules(pokemonAppModule)
+    }
     install(CallLogging) {
         mdc("correlation-id") { call ->
             call.request.headers.get("x-correlation-id") ?: UUID.randomUUID().toString()
@@ -56,10 +59,6 @@ fun Application.module() {
                 )
             )
         }
-    }
-
-    install(Koin) {
-        modules(pokemonAppModule)
     }
 
     registerPokemonRoutes()

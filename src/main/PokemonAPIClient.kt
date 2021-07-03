@@ -2,8 +2,8 @@ package dev.danielwright.main
 
 import io.ktor.client.request.*
 
-class PokemonAPIClient {
+class PokemonAPIClient(val client: PokemonHttpClient) {
     suspend fun getPokemon(number: Int): Pokemon {
-        return client.get("https://pokeapi.co/api/v2/pokemon/$number")
+        return client.getClient().get("https://pokeapi.co/api/v2/pokemon/$number")
     }
 }
