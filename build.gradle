@@ -13,6 +13,7 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlin_version"
     id 'application'
     id 'jacoco'
+    id "org.jlleitschuh.gradle.ktlint" version "10.1.0"
 }
 
 test {

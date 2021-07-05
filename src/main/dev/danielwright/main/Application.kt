@@ -1,15 +1,25 @@
 package dev.danielwright.main
 
-import io.ktor.application.*
-import io.ktor.auth.*
-import io.ktor.content.*
-import io.ktor.features.*
-import io.ktor.http.*
-import io.ktor.response.*
-import io.ktor.serialization.*
+import io.ktor.application.Application
+import io.ktor.application.call
+import io.ktor.application.install
+import io.ktor.auth.Authentication
+import io.ktor.auth.UserIdPrincipal
+import io.ktor.auth.basic
+import io.ktor.content.TextContent
+import io.ktor.features.BadRequestException
+import io.ktor.features.CORS
+import io.ktor.features.CallLogging
+import io.ktor.features.ContentNegotiation
+import io.ktor.features.StatusPages
+import io.ktor.http.ContentType
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.withCharset
+import io.ktor.response.respond
+import io.ktor.serialization.json
 import kotlinx.serialization.SerializationException
 import org.koin.ktor.ext.Koin
-import java.util.*
+import java.util.UUID
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 

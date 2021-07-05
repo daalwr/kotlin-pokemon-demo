@@ -23,10 +23,10 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] Mocking
 - [x] Validation
 - [x] Configuration loading
+- [x] Memoization / caching
+- [x] Code formatting
 - [ ] Advanced client request logging
-- [ ] Memoization / caching
 - [ ] Tracing / OpenTelemetry
-- [ ] Code formatting
 - [ ] Request throttling
   
 

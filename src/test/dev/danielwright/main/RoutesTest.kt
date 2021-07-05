@@ -1,21 +1,22 @@
-package dev.danielwright.dev.danielwright.main
+package dev.danielwright.main
 
-import dev.danielwright.main.Pokemon
-import dev.danielwright.main.PokemonAPIClient
-import dev.danielwright.main.PokemonHttpClient
-import dev.danielwright.main.module
 import io.kotest.assertions.ktor.shouldHaveStatus
 import io.kotest.core.spec.Spec
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
-import io.ktor.application.*
-import io.ktor.client.*
-import io.ktor.client.engine.mock.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
-import io.ktor.http.*
-import io.ktor.server.testing.*
+import io.ktor.application.Application
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.mock.MockEngine
+import io.ktor.client.engine.mock.respond
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.http.ContentType
+import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.headersOf
+import io.ktor.server.testing.handleRequest
+import io.ktor.server.testing.withTestApplication
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -65,7 +66,6 @@ class RoutesTest : FunSpec(), KoinTest {
                     actual.id shouldBe 1
 
                     coVerify { pokemonApi.getPokemon(range(1, 150)) }
-
                 }
             }
         }
@@ -78,10 +78,12 @@ class RoutesTest : FunSpec(), KoinTest {
 
                 val mockEngine = HttpClient(MockEngine) {
                     install(JsonFeature) {
-                        serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
-                            ignoreUnknownKeys = true
-                            isLenient = true
-                        })
+                        serializer = KotlinxSerializer(
+                            Json {
+                                ignoreUnknownKeys = true
+                                isLenient = true
+                            }
+                        )
                     }
                     engine {
                         addHandler { request ->
@@ -110,6 +112,5 @@ class RoutesTest : FunSpec(), KoinTest {
                 }
             }
         }
-
     }
 }

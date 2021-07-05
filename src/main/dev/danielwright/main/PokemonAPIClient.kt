@@ -1,6 +1,6 @@
 package dev.danielwright.main
 
-import io.ktor.client.request.*
+import io.ktor.client.request.get
 
 class PokemonAPIClient(val client: PokemonHttpClient) {
 

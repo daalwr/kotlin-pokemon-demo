@@ -7,5 +7,4 @@ class ConfigService {
     fun getConfig(): Config {
         return ConfigLoader().loadConfigOrThrow("/application.conf")
     }
-
 }

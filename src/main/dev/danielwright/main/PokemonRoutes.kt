@@ -1,11 +1,16 @@
 package dev.danielwright.main
 
-import io.ktor.application.*
-import io.ktor.auth.*
-import io.ktor.features.*
-import io.ktor.request.*
-import io.ktor.response.*
-import io.ktor.routing.*
+import io.ktor.application.Application
+import io.ktor.application.call
+import io.ktor.auth.authenticate
+import io.ktor.features.BadRequestException
+import io.ktor.request.receive
+import io.ktor.response.respond
+import io.ktor.response.respondText
+import io.ktor.routing.Route
+import io.ktor.routing.get
+import io.ktor.routing.post
+import io.ktor.routing.routing
 import jakarta.validation.Validation
 import jakarta.validation.Validator
 import org.koin.ktor.ext.inject
@@ -56,4 +61,3 @@ fun <T : Any> T.validate(validator: Validator) {
             throw BadRequestException("Bad request: ${first.propertyPath} ${first.message}")
         }
 }
-

@@ -12,7 +12,7 @@ import io.mockk.mockk
 class PokemonServiceTest : FunSpec({
 
     test("my first test") {
-        val pokemonApiClient = mockk<PokemonAPIClient>();
+        val pokemonApiClient = mockk<PokemonAPIClient>()
 
         coEvery { pokemonApiClient.getPokemon(any()) } returns Pokemon(1, "test", 0, 0)
 
@@ -23,5 +23,4 @@ class PokemonServiceTest : FunSpec({
 
         actual.id shouldBe 1
     }
-
 })
