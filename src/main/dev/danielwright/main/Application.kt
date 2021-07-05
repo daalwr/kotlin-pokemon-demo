@@ -7,6 +7,7 @@ import io.ktor.features.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.serialization.*
+import kotlinx.serialization.SerializationException
 import org.koin.ktor.ext.Koin
 import java.util.*
 
@@ -37,8 +38,16 @@ fun Application.module() {
         }
     }
     install(StatusPages) {
+        exception<SerializationException> { cause ->
+            call.respond(HttpStatusCode.BadRequest, "${cause.message}")
+            throw cause
+        }
+        exception<BadRequestException> { cause ->
+            call.respond(HttpStatusCode.BadRequest, "${cause.message}")
+            throw cause
+        }
         exception<Throwable> { cause ->
-            call.respond(HttpStatusCode.InternalServerError, "Internal Server Error")
+            call.respond(HttpStatusCode.InternalServerError, "Internal Server Error: ${cause.message}")
             throw cause
         }
         status(HttpStatusCode.NotFound) {

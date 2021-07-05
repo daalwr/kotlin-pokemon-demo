@@ -21,10 +21,16 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] Component testing
 - [x] Code coverage
 - [x] Mocking
-- [ ] Validation
+- [x] Validation
 - [ ] Advanced client request logging
 - [ ] Configuration loading
 - [ ] Memoization / caching
 - [ ] Tracing / OpenTelemetry
 - [ ] Code formatting
-- [ ] OpenAPI spec
+  
+
+## Abandoned
+
+- OpenAPI spec
+
+https://github.com/papsign/Ktor-OpenAPI-Generator
