@@ -1,4 +1,4 @@
-package dev.danielwright
+package dev.danielwright.main
 
 import dev.danielwright.main.pokemonAppModule
 import io.kotest.core.spec.style.FunSpec

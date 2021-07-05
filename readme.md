@@ -19,12 +19,12 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] Serialization and deserialization
 - [x] Unit testing
 - [x] Component testing
-- [ ] Advanced client request logging
+- [x] Code coverage
+- [x] Mocking
 - [ ] Validation
+- [ ] Advanced client request logging
 - [ ] Configuration loading
 - [ ] Memoization / caching
 - [ ] Tracing / OpenTelemetry
-- [ ] Mocking
-- [ ] Code coverage
 - [ ] Code formatting
 - [ ] OpenAPI spec

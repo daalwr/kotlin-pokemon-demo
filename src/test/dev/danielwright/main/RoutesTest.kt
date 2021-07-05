@@ -1,10 +1,11 @@
-package dev.danielwright
+package dev.danielwright.dev.danielwright.main
 
 import dev.danielwright.main.Pokemon
 import dev.danielwright.main.PokemonAPIClient
 import dev.danielwright.main.PokemonHttpClient
 import dev.danielwright.main.module
 import io.kotest.assertions.ktor.shouldHaveStatus
+import io.kotest.core.spec.Spec
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
@@ -13,7 +14,6 @@ import io.ktor.client.*
 import io.ktor.client.engine.mock.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
-import io.ktor.client.features.logging.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import io.mockk.coEvery
@@ -23,6 +23,7 @@ import io.mockk.mockkClass
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import org.junit.Rule
+import org.koin.core.context.GlobalContext.stopKoin
 import org.koin.test.KoinTest
 import org.koin.test.mock.MockProvider
 import org.koin.test.mock.declareMock
@@ -34,6 +35,11 @@ class RoutesTest : FunSpec(), KoinTest {
         mockkClass(clazz)
     }
 
+    override fun beforeSpec(spec: Spec) {
+        super.beforeSpec(spec)
+        stopKoin()
+    }
+
     init {
         test("hello world route returns 200 status code") {
             withTestApplication(Application::module) {
@@ -43,7 +49,6 @@ class RoutesTest : FunSpec(), KoinTest {
                 }
             }
         }
-
 
         test("pokemonAPI returns pokemon") {
 

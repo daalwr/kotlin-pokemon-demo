@@ -1,4 +1,4 @@
-package dev.danielwright
+package dev.danielwright.dev.danielwright.main
 
 import dev.danielwright.main.Pokemon
 import dev.danielwright.main.PokemonAPIClient
