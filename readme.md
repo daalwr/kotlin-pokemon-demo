@@ -22,11 +22,12 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] Code coverage
 - [x] Mocking
 - [x] Validation
+- [x] Configuration loading
 - [ ] Advanced client request logging
-- [ ] Configuration loading
 - [ ] Memoization / caching
 - [ ] Tracing / OpenTelemetry
 - [ ] Code formatting
+- [ ] Request throttling
   
 
 ## Abandoned

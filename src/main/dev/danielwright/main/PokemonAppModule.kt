@@ -7,4 +7,5 @@ val pokemonAppModule = module() {
     single<PokemonAPIClient>()
     single<PokemonService>()
     single<PokemonHttpClient>()
+    single<ConfigService>()
 }

@@ -19,6 +19,8 @@ fun Application.registerPokemonRoutes() {
 fun Route.getPokemonRoutes() {
 
     val pokemonService: PokemonService by inject()
+    val configService: ConfigService by inject()
+    val config: Config = configService.getConfig()
     val validator = Validation.buildDefaultValidatorFactory().validator
 
     get("/hello") {
@@ -34,6 +36,9 @@ fun Route.getPokemonRoutes() {
     }
     get("/pokefail") {
         throw Exception("Pokefail exception")
+    }
+    get("/config") {
+        call.respond("Default pokemon is ${config.defaultPokemon}")
     }
     authenticate("auth-basic") {
         get("/protectedpokemon") {

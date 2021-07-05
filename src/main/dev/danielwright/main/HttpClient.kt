@@ -15,7 +15,7 @@ class PokemonHttpClient {
             })
         }
         install(Logging) {
-            level = LogLevel.HEADERS
+            level = LogLevel.NONE
         }
     }
 
