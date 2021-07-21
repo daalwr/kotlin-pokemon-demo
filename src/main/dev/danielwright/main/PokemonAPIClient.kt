@@ -1,5 +1,6 @@
 package dev.danielwright.main
 
+import dev.danielwright.main.model.Pokemon
 import io.ktor.client.request.get
 
 class PokemonAPIClient(val client: PokemonHttpClient) {
@@ -9,4 +10,5 @@ class PokemonAPIClient(val client: PokemonHttpClient) {
             client.getClient().get("https://pokeapi.co/api/v2/pokemon/$it")
         }
     }
+
 }

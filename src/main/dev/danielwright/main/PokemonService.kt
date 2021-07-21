@@ -1,5 +1,6 @@
 package dev.danielwright.main
 
+import dev.danielwright.main.model.Pokemon
 import kotlin.random.Random
 
 class PokemonService(private val pokemonAPIClient: PokemonAPIClient) {

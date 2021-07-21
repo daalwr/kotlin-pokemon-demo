@@ -1,12 +1,13 @@
 package dev.danielwright.main
 
+import dev.danielwright.main.model.request.GetPokemonById
+import dev.danielwright.main.model.response.Message
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.auth.authenticate
 import io.ktor.features.BadRequestException
 import io.ktor.request.receive
 import io.ktor.response.respond
-import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.post
@@ -29,13 +30,13 @@ fun Route.getPokemonRoutes() {
     val validator = Validation.buildDefaultValidatorFactory().validator
 
     get("/hello") {
-        call.respondText("Hello, World!")
+        call.respond(Message("Hello, World!"))
     }
     get("/pokemon") {
         call.respond(pokemonService.getRandomPokemon())
     }
     post("/pokemon") {
-        val pokemonByIdRequest = call.receive<GetPokemonByIdRequest>()
+        val pokemonByIdRequest = call.receive<GetPokemonById>()
         pokemonByIdRequest.validate(validator)
         call.respond(pokemonService.getPokemonById(pokemonByIdRequest.id))
     }

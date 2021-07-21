@@ -25,13 +25,17 @@ This is a simple web server application I am using to learn and experiment with 
 - [x] Configuration loading
 - [x] Memoization / caching
 - [x] Code formatting
+- [x] Client timeouts
 - [ ] Advanced client request logging
 - [ ] Tracing / OpenTelemetry
 - [ ] Request throttling
-  
+- [ ] Server timeouts
+- [ ] JSONSchema based validation
+- [ ] Problem JSON
 
 ## Abandoned
 
-- OpenAPI spec
+### OpenAPI spec
 
+There are some OpenAPI generating libraries but they are not widely adopted yet. For example: 
 https://github.com/papsign/Ktor-OpenAPI-Generator

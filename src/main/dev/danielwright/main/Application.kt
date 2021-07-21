@@ -35,7 +35,9 @@ fun Application.module() {
     install(ContentNegotiation) {
         json()
     }
-    install(CORS)
+    install(CORS) {
+        anyHost()
+    }
     install(Authentication) {
         basic("auth-basic") {
             validate { credentials ->

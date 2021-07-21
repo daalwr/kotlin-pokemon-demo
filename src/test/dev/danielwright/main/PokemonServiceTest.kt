@@ -1,8 +1,6 @@
-package dev.danielwright.dev.danielwright.main
+package dev.danielwright.main
 
-import dev.danielwright.main.Pokemon
-import dev.danielwright.main.PokemonAPIClient
-import dev.danielwright.main.PokemonService
+import dev.danielwright.main.model.Pokemon
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -11,7 +9,7 @@ import io.mockk.mockk
 
 class PokemonServiceTest : FunSpec({
 
-    test("my first test") {
+    test("PokemonService returns a Pokemon from the Pokemon API Client") {
         val pokemonApiClient = mockk<PokemonAPIClient>()
 
         coEvery { pokemonApiClient.getPokemon(any()) } returns Pokemon(1, "test", 0, 0)

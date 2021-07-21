@@ -1,4 +1,4 @@
-package dev.danielwright.main
+package dev.danielwright.main.model
 
 import kotlinx.serialization.Serializable
 
